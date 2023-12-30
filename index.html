@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <meta
+      name="description"
+      content="Браузерная RPG игра «Укротитель Драконов»: помоги жителям покинуть город"
+    />
+    <meta
+      name="keywords"
+      content="игра, RPG, фэнтези, игры в браузере, бесплатная игра, онлайн, игры без регистрации"
+    />
+    <meta name="author" content="Александр Кондаков" />
+    <meta property="og:title" content="Укротитель Драконов" />
+    <meta property="og:url" content="https://agkondakov91.github.io/" />
+    <!--get link-->
+    <meta property="og:image" content="img/OpenGraph.jpg" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <title>Укротитель Драконов</title>
+    <link rel="icon" href="./img/favicon/favicon.ico" sizes="any" />
+    <link rel="icon" href="./img/favicon/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./img/favicon/apple-icon.png" />
+    <link rel="stylesheet" href="./fonts/fonts.css" />
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body class="page">
+    <header class="header">
+      <h1 class="header__title">Укротитель Драконов</h1>
+    </header>
+    <main class="main">
+      <div class="image">
+        <div class="image__up"></div>
+        <div class="image__content"></div>
+        <div class="image__right"></div>
+        <div class="image__left"></div>
+        <div class="image__place">
+          <span id="place">Город</span>
+        </div>
+      </div>
+      <div class="main-content">
+        <ul id="stats">
+          <li>
+            <p class="stat">
+              Опыт: <strong
+                ><span class="main-content__strong" id="xpText">0</span></strong
+              >
+            </p>
+          </li>
+          <li>
+            <p class="stat">
+              Здоровье: <strong
+                ><span class="main-content__strong" id="healthText">100</span></strong
+              >
+            </p>
+          </li>
+          <li>
+            <p class="stat">
+              Золото: <strong
+                ><span class="main-content__strong" id="goldText">50</span></strong
+              >
+            </p>
+          </li>
+        </ul>
+        <ul id="monster-stats">
+          <li>
+            <p class="stat">
+              Монстр:
+              <strong><span class="stat__strong" id="monsterName"></span></strong>
+            </p>
+          </li>
+          <li>
+            <p class="stat">
+              Здоровье:
+              <strong
+                ><span class="stat__strong" id="monsterHealth"></span
+              ></strong>
+            </p>
+          </li>
+        </ul>
+        <div class="main-content__text">
+          <p id="text">
+            Добро пожаловать в игру <strong>Укротитель драконов</strong>. Вы
+            должны победить дракона, который мешает людям покинуть город. Вы
+            находитесь на городской площади. Куда вы хотите отправиться?
+            Используйте кнопки ниже.
+          </p>
+          <div id="image__down"></div>
+        </div>
+      </div>
+      <ul id="controls">
+        <li class="main__controls">
+          <button class="button" id="button1">В магазин</button>
+        </li>
+        <li class="main__controls">
+          <button class="button" id="button2">В подземелье</button>
+        </li>
+        <li class="main__controls">
+          <button class="button" id="button3">Убить дракона</button>
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>

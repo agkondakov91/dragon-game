@@ -1,0 +1,231 @@
+.page {
+  min-inline-size: 320px;
+  max-inline-size: 1440px;
+  margin: 0 auto;
+  background: url(./img/background.jpg) no-repeat center / cover;
+  background-attachment: fixed;
+}
+
+.header {
+  padding: 75px 255px;
+}
+
+.header__title {
+  color: #f5a231;
+  text-align: center;
+  font-family: "TanaUncialSP";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: 4px;
+  -webkit-text-stroke: 1px #a03f13;
+  text-transform: uppercase;
+}
+
+.main {
+  position: relative;
+  padding: 0 255px 75px;
+}
+
+@media (width <= 1440px) {
+  .header {
+    padding: clamp(2.188rem, 1.447rem + 3.7vw, 4.688rem) /* 75 => 35*/
+      clamp(0rem, -4.554rem + 22.77vw, 15.938rem); /* 255 => 0*/
+  }
+  .main {
+    padding: 0 clamp(0rem, -4.554rem + 22.77vw, 15.938rem) 75px; /* 255 => 0*/
+  }
+}
+
+.image {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.image__up {
+  position: absolute;
+  top: calc(-14px + (-30 + 14) * (100vw - 320px) / (1440 - 320));
+  width: clamp(10.125rem, 7.482rem + 13.21vw, 19.375rem);
+  height: clamp(2.5rem, 1.857rem + 3.21vw, 4.75rem);
+  align-self: center;
+  background: url(./img/svg/up.svg) no-repeat center / cover;
+}
+
+.image__content {
+  max-width: 100%;
+  height: 260px;
+  background: url(./img/01-town.jpg) no-repeat center / cover;
+  border: 5px solid #cf6d1a;
+}
+
+.image__right {
+  position: absolute;
+  right: -12px;
+  width: 35px;
+  height: 270px;
+  background: url(./img/svg/right.svg) no-repeat center / cover;
+  z-index: -1;
+}
+
+.image__left {
+  position: absolute;
+  left: -12px;
+  width: 35px;
+  height: 270px;
+  background: url(./img/svg/left.svg) no-repeat center / cover;
+  z-index: -1;
+}
+
+@media (width <= 400px) {
+  .image__left, .image__right {
+    display: none;
+  }
+}
+
+.image__place {
+  position: absolute;
+  bottom: -22px;
+  width: 169px;
+  height: 50px;
+  align-self: center;
+  background: url(./img/svg/place.svg) no-repeat center / cover;
+}
+
+#place {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 15px;
+  color: #fff;
+  text-align: center;
+  font-family: "TanaUncialSP";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  margin-block-end: 68px;
+  padding: 40px clamp(1.875rem, 0.625rem + 6.25vw, 6.25rem) 60px;
+  background-color: #3e170d;
+  border: 5px solid #cf6d1a;
+  border-top: none;
+}
+
+#stats {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 24px;
+}
+
+.stat {
+  color: #fff;
+  text-align: center;
+  font-family: "TanaUncialSP";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: 0.75px;
+}
+
+#monster-stats {
+  display: none;
+  justify-content: center;
+  gap: 25px;
+  border-radius: 10px;
+  background: #f51717;
+  padding: 15px;
+  margin-block-end: 15px;
+}
+
+.stat__strong {
+  color: #000;
+}
+
+.main-content__strong {
+  color: #ffa654;
+}
+
+.main-content__text {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  background: #e49c61;
+  padding: 15px;
+}
+
+#text {
+  color: #000;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+#image__down {
+  position: absolute;
+  bottom: calc(-82px + (-100 + 82) * (100vw - 320px) / (1440 - 320));
+  width: clamp(5.313rem, 3.795rem + 7.59vw, 10.625rem);
+  height: clamp(2.063rem, 1.491rem + 2.86vw, 4.063rem);
+  background: url(./img/svg/down.svg) no-repeat center / cover;
+  align-self: center;
+}
+
+#controls {
+  display: flex;
+  justify-content: space-between;
+  gap: clamp(0.938rem, -0.173rem + 3.23vw, 2.25rem);
+}
+
+@media (width <= 550px) {
+  #controls {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+.main__controls {
+  width: 100%;
+}
+
+.button {
+  width: 100%;
+  height: 60px;
+  border-radius: 35px;
+  border: 3px solid #c76919;
+  background: var(--buttons, linear-gradient(180deg, #d7711b 0%, #f5b42a 100%));
+  color: #3c160c;
+  text-align: center;
+  font-family: "TanaUncialSP";
+  font-size: clamp(0.75rem, 0.596rem + 0.45vw, 1rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: 1.8px;
+  -webkit-text-stroke: 1px #3c160c;
+  cursor: pointer;
+}
+
+@media (width <= 550px) {
+  .button {
+    font-size: 16px;
+  }
+}
+
+.button:hover {
+  color: #f5b42a;
+  -webkit-text-stroke: 1px #f5b42a;
+  background: #3c160c;
+}
