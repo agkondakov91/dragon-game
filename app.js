@@ -1,7 +1,7 @@
 // переменные
 let xp = 0;
 let health = 100;
-let gold = 250;
+let gold = 50;
 let currentWeapon = 0;
 let fighting;
 let monsterHealth;
@@ -89,6 +89,34 @@ const locations = [
     "button functions": [attack, dodge, goTown],
     text: "Вы смело вышли на бой с монстром подземелья! Да хранит вас <strong>Богиня Удачи</strong>!",
     image: "./img/05-beast.jpg",
+  },
+  {
+    name: "дракон",
+    "button text": ["Атаковать", "Уклониться", "Сбежать"],
+    "button functions": [attack, dodge, goTown],
+    text: "Вы решили раз и навсегда разобраться с <strong>Чёрным драконом</strong> и помочь жителям покинуть город! Да хранит вас <strong>Богиня Удачи</strong>!",
+    image: "./img/06-dragon.jpg",
+  },
+  {
+    name: "проигрыш",
+    "button text": ["Начать сначала?", "Начать сначала?", "Начать сначала?"], //можно добавить статистику
+    "button functions": [restart, restart, restart],
+    text: "Вы погибли. ☠️ Тепер жители города обречены! Но <strong>Богиня Удачи</strong> может даровать вам ещё один шанс.",
+    image: "./img/07-lose.jpg",
+  },
+  {
+    name: "монстр убит",
+    "button text": ["Вернуться в город", "Вернуться в город", "Вернуться в город"], //можно добавить возможность убить ещё одного монстра
+    "button functions": [goTown, goTown, goTown],
+    text: "Умирая, монстр рычит <strong>«Аррргг!»</strong>. Вы получаете <strong>очки опыта</strong> и находите <strong>золото</strong>.",
+    image: "./img/08-win.jpg",
+  },
+  {
+    name: "победа",
+    "button text": ["Начать сначала?", "Начать сначала?", "Начать сначала?"], //можно добавить статистику
+    "button functions": [restart, restart, restart],
+    text: "Вы победили дракона! ВЫ ВЫИГРАЛИ ИГРУ! 🎉",
+    image: "./img/08-win.jpg",
   },
 ];
 
@@ -185,21 +213,77 @@ function goBeast() {
   goFight();
 }
 
+function fightDragon() {
+  updateLocation(locations[5]);
+  fighting = 2;
+  goFight();
+}
+
 function goFight() {
-    monsterHealth = monsters[fighting].health;
-    monsterStats.style.display = 'flex';
-    monsterName.textContent = monsters[fighting].name;
-    monsterHealthText.textContent = monsterHealth;
+  monsterHealth = monsters[fighting].health;
+  monsterStats.style.display = "flex";
+  monsterName.textContent = monsters[fighting].name;
+  monsterHealthText.textContent = monsterHealth;
 }
 
 function attack() {
-  console.log("AAA");
+  textStory.innerHTML = `Монстр <strong>«${monsters[fighting].name}»</strong> бросается на вас. Вы атакуете его своим оружием: <strong>${weapons[currentWeapon].name}</strong>.`;
+  health -= getMonsterAttackValue(monsters[fighting].level);
+  if (isMonsterHit()) {
+    monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
+  } else {
+    textStory.innerHTML = 'Вы промахнулись.';
+  }
+  healthText.textContent = health;
+  monsterHealthText.textContent = monsterHealth;
+  if (health <= 0) {
+    lose();
+  } else if (monsterHealth <= 0) {
+    fighting === 2 ? winGame() : defeatMonster();
+  }
+  if (Math.random() <= .1 && inventory.length !== 1) {
+    textStory.innerHTML += ` Ваше оружие <strong>${inventory.pop()}</strong> ломается от мощного удара.`;
+    currentWeapon--;
+  }
+}
+
+function getMonsterAttackValue(level) {
+  const hit = level * 5 - (Math.floor(Math.random() * xp));
+  return hit > 0 ? hit : 0;
+}
+
+function isMonsterHit() {
+  return Math.random() > .2 || health < 20;
 }
 
 function dodge() {
-  console.log("yyyy");
+  textStory.innerHTML = `Вы успешно уклоняетесь от атаки монстра: <strong>${monsters[fighting].name}</strong>`;
 }
 
-function fightDragon() {
-  console.log("Иду к дракону");
+function defeatMonster() {
+  gold += Math.floor(monsters[fighting].level * 6.7);
+  xp += monsters[fighting].level;
+  goldText.textContent = gold;
+  xpText.textContent = xp;
+  updateLocation(locations[7]);
+}
+
+function lose() {
+  updateLocation(locations[6]);
+}
+
+function winGame() {
+  updateLocation(locations[8]);
+}
+
+function restart() {
+  xp = 0;
+  health = 100;
+  gold = 50;
+  currentWeapon = 0;
+  inventory = ["Палка"];
+  goldText.textContent = gold;
+  healthText.textContent = health;
+  xpText.textContent = xp;
+  goTown();
 }

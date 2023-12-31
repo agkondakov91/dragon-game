@@ -94,6 +94,7 @@
 }
 
 #place {
+  width: 200px;
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
@@ -218,14 +219,16 @@
   cursor: pointer;
 }
 
+@media (width >= 1024px) {
+  .button:hover {
+    color: #f5b42a;
+    -webkit-text-stroke: 1px #f5b42a;
+    background: #3c160c;
+  }
+}
+
 @media (width <= 550px) {
   .button {
     font-size: 16px;
   }
-}
-
-.button:hover {
-  color: #f5b42a;
-  -webkit-text-stroke: 1px #f5b42a;
-  background: #3c160c;
 }
