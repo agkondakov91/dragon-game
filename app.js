@@ -153,6 +153,15 @@ button2.onclick = goCave;
 button3.onclick = fightDragon;
 
 //функции
+function preloadImage(locations) { //предварительная загрузка изображений
+  for (const location of locations) {
+    const image = new Image();
+    image.src = location.image;
+  }
+}
+
+preloadImage(locations);
+
 function updateLocation(location) {
   monsterStats.style.display = "none";
   button1.textContent = location["button text"][0];
