@@ -17,7 +17,10 @@
     />
     <meta name="author" content="Александр Кондаков" />
     <meta property="og:title" content="Укротитель Драконов" />
-    <meta property="og:url" content="https://agkondakov91.github.io/dragon-game/" />
+    <meta
+      property="og:url"
+      content="https://agkondakov91.github.io/dragon-game/"
+    />
     <meta property="og:image" content="img/OpenGraph.jpg" />
     <meta property="twitter:card" content="summary_large_image" />
     <title>Укротитель Драконов</title>
@@ -47,22 +50,29 @@
         <ul id="stats">
           <li>
             <p class="stat">
-              Опыт: <strong
+              Опыт:
+              <strong
                 ><span class="main-content__strong" id="xpText">0</span></strong
               >
             </p>
           </li>
           <li>
             <p class="stat">
-              Здоровье: <strong
-                ><span class="main-content__strong" id="healthText">100</span></strong
+              Здоровье:
+              <strong
+                ><span class="main-content__strong" id="healthText"
+                  >100</span
+                ></strong
               >
             </p>
           </li>
           <li>
             <p class="stat">
-              Золото: <strong
-                ><span class="main-content__strong" id="goldText">50</span></strong
+              Золото:
+              <strong
+                ><span class="main-content__strong" id="goldText"
+                  >50</span
+                ></strong
               >
             </p>
           </li>
@@ -71,7 +81,9 @@
           <li>
             <p class="stat">
               Монстр:
-              <strong><span class="stat__strong" id="monsterName"></span></strong>
+              <strong
+                ><span class="stat__strong" id="monsterName"></span
+              ></strong>
             </p>
           </li>
           <li>
@@ -88,7 +100,7 @@
             Добро пожаловать в игру <strong>Укротитель драконов</strong>. Вы
             должны победить дракона, который мешает людям покинуть город. Вы
             находитесь на городской площади. Куда вы хотите отправиться?
-            Используйте кнопки ниже.
+            <strong>Используйте кнопки ниже</strong>.
           </p>
           <div id="image__down"></div>
         </div>
@@ -105,5 +117,18 @@
         </li>
       </ul>
     </main>
+    <footer class="footer">
+      <p class="footer__title">Слушать музыку менестрелей?</p>
+      <div class="footer__controls">
+        <button type="button" id="music-on" class="button">Да</button>
+        <button type="button" id="music-off" class="button">Нет</button>
+      </div>
+      <audio controls loop>
+        <source
+          src="./audio/darren-curtis-i-am-not-what-i-thoughtchosiccom_q4kJrCwN.mp3"
+          type="audio/mp3"
+        />
+      </audio>
+    </footer>
   </body>
 </html>
